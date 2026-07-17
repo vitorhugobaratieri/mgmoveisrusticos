@@ -526,7 +526,7 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
 /* Woods section */
 .woods-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
 
