@@ -1193,6 +1193,12 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
   opacity: 0.55;
 }
 
+.footer-credit {
+  margin-top: 0.65rem;
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
 /* WhatsApp float */
 .whatsapp-float {
   position: fixed;
