@@ -1,4 +1,26 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/sob-encomenda.html",
+      "destination": "/produtos.html#sob-encomenda",
+      "permanent": true
+    },
+    {
+      "source": "/sob-encomenda",
+      "destination": "/produtos.html#sob-encomenda",
+      "permanent": true
+    },
+    {
+      "source": "/moveis-prontos.html",
+      "destination": "/produtos.html#pronta-entrega",
+      "permanent": true
+    },
+    {
+      "source": "/moveis-prontos",
+      "destination": "/produtos.html#pronta-entrega",
+      "permanent": true
+    }
+  ]
 }

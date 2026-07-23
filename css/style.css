@@ -791,6 +791,32 @@ h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
   display: none;
 }
 
+.gallery-capa::before,
+.gallery-modelo::before {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.gallery-capa::before {
+  content: "Estilo";
+  background: var(--forest);
+  color: var(--white);
+}
+
+.gallery-modelo::before {
+  content: "Modelo";
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--wood-dark);
+}
+
 /* Lightbox */
 .lightbox {
   position: fixed;

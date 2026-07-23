@@ -60,26 +60,53 @@
   /* Gallery filters */
   const filterBtns = document.querySelectorAll(".filter-btn");
   const galleryItems = document.querySelectorAll(".gallery-item");
+  const hashToFilter = {
+    mesas: "mesas",
+    cadeiras: "cadeiras",
+    balcoes: "balcoes",
+    cozinhas: "cozinhas",
+    estantes: "estantes"
+  };
 
-  filterBtns.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      const filter = btn.dataset.filter;
-
-      filterBtns.forEach(function (b) {
-        b.classList.remove("active");
-      });
-      btn.classList.add("active");
+  function applyGalleryFilter(filter) {
+    filterBtns.forEach(function (b) {
+      b.classList.toggle("active", b.dataset.filter === filter);
+    });
 
       galleryItems.forEach(function (item) {
-        const category = item.dataset.category;
-        if (filter === "todos" || category === filter) {
+        const categories = (item.dataset.category || "").split(/\s+/);
+        if (filter === "todos" || categories.includes(filter)) {
           item.classList.remove("hidden");
         } else {
           item.classList.add("hidden");
         }
       });
+  }
+
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      applyGalleryFilter(btn.dataset.filter);
     });
   });
+
+  function handlePageHash() {
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+
+    if (hashToFilter[hash]) {
+      applyGalleryFilter(hashToFilter[hash]);
+    }
+
+    const target = document.getElementById(hash);
+    if (target) {
+      requestAnimationFrame(function () {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+  }
+
+  handlePageHash();
+  window.addEventListener("hashchange", handlePageHash);
 
   /* Lightbox */
   const lightbox = document.querySelector(".lightbox");
